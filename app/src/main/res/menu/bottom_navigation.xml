@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_home"
+        android:title="HOME"
+        android:icon="@drawable/ic_home"
+        />
+
+    <item
+        android:id="@+id/menu_explore"
+        android:title="CHARACTER"
+        android:icon="@drawable/ic_fire"
+        />
+
+    <item
+        android:id="@+id/menu_subscription"
+        android:title="BOUNTY"
+        android:icon="@drawable/ic_boat"
+        />
+
+    <item
+        android:id="@+id/menu_library"
+        android:title="BIO"
+        android:icon="@drawable/ic_help"
+        />
+
+
+
+
+</menu>

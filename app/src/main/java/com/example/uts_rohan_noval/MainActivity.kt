@@ -1,0 +1,44 @@
+package com.example.uts_rohan_noval
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import com.example.uts_rohan_noval.fragment.ExploreFragment
+import com.example.uts_rohan_noval.fragment.HomeFragment
+import com.example.uts_rohan_noval.fragment.LibraryFragment
+import com.example.uts_rohan_noval.fragment.SubscriptionFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+
+        val homeFragment = HomeFragment()
+        val exploreFragment = ExploreFragment()
+        val subscriptionFragment = SubscriptionFragment()
+        val libraryFragment = LibraryFragment()
+
+        makeCurrentFragment (homeFragment)
+
+        val bottom_navigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+
+        bottom_navigation.setOnNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.menu_home -> makeCurrentFragment(homeFragment)
+                R.id.menu_explore -> makeCurrentFragment(exploreFragment)
+                R.id.menu_subscription -> makeCurrentFragment(subscriptionFragment)
+                R.id.menu_library -> makeCurrentFragment(libraryFragment)
+            }
+            true
+        }
+    }
+
+    private fun makeCurrentFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fl_fragment, fragment)
+            commit()
+        }
+    }
+}
